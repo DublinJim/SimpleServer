@@ -24,7 +24,7 @@ public class Server {
         BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         String msg;
-        msg = "out from the server";
+        msg = "out from the server...    ";
 
         /*     send out a string */
         printWriter.println(msg);
