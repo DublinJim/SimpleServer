@@ -15,20 +15,21 @@ public class Server {
         //create sockets for the incoming and outgoing
         ///////////////////////////////////////////////////////
         ServerSocket serverSocket = new ServerSocket(9090);
+        System.out.println("[SERVER]...  AWAITING CONNECTION ");
         Socket socket = serverSocket.accept();
-
+        System.out.println("[SERVER]...  CONNECTED  ");
 
         /*   create a print writer object and a reader object */
 
-        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-        BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter sender = new PrintWriter(socket.getOutputStream(), true);
+        BufferedReader reciever = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         String msg;
-        msg = "out from the server...    ";
+        msg = "... MESSAGE FROM SERVER.....   ";
 
         /*     send out a string */
-        printWriter.println(msg);
-
+        sender.println(msg);
+        System.out.println("[SERVER]...  DATA SENT  ");
         closeSockets(serverSocket, socket);
 
     }
@@ -36,5 +37,6 @@ public class Server {
     private static void closeSockets(ServerSocket serverSocket, Socket socket) throws IOException {
         serverSocket.close();
         socket.close();
+        System.out.println("[SERVER]...  CLOSED  ");
     }
 }
