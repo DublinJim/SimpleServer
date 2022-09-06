@@ -13,6 +13,8 @@ public class Client {
 
         Socket socket = new Socket("localhost", 9090);
      /*   InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());*/
+        
+        
         BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         String incomingMsg = input.readLine();
 
